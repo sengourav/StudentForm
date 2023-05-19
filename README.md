@@ -31,8 +31,8 @@ This release introduces the initial version of the student enrollment form, allo
 - Included a search functionality to easily find and retrieve specific student records.
 - Improved overall user interface for a more intuitive and seamless experience.
 ## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot (192)](https://github.com/sengourav/StudentForm/assets/107364930/1ac155b4-9827-4805-b6fe-a752c6e9be0a)
+![Screenshot (193)](https://github.com/sengourav/StudentForm/assets/107364930/7f98e043-b749-417f-9df6-5f12f1e13ef0)
 
 
 ## Scope of Functionalities :
