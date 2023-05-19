@@ -6,8 +6,8 @@
 var jpdbBaseURL="http://api.login2explore.com:5577";
 var jpdbIRL="/api/irl";
 var jpdbIML="/api/iml";
-var empDBName="SCHOOL-DB";
-var empRelationName="STUDENT-TABLE";
+var studentDBName="SCHOOL-DB";
+var studentRelationName="STUDENT-TABLE";
 var connToken="90933188|-31949319807818497|90951095"; 
 $("#studentid").focus();
 
@@ -28,7 +28,7 @@ function saveRecNo2LS(jsonObj){
 function fillData(jsonObj){
     saveRecNo2LS(jsonObj);
     var record=JSON.parse(jsonObj.data).record;
-    $("#studentname").val(record.studentname);
+    $("#studentname").val(record.name);
     $("#class").val(record.class);
     $("#birthdate").val(record.birthdate);
     $("#address").val(record.address);
@@ -37,8 +37,8 @@ function fillData(jsonObj){
 }
 
 function getStudent(){
-    var empIdJsonObj = getStudentIdAsJsonObj();
-    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, empRelationName, empIdJsonObj);
+    var studentIdJsonObj = getStudentIdAsJsonObj();
+    var getRequest = createGET_BY_KEYRequest(connToken, studentDBName, studentRelationName, studentIdJsonObj);
     jQuery.ajaxSetup({async: false});
     var resJsonObj = executeCommandAtGivenBaseUrl(getRequest, jpdbBaseURL, jpdbIRL);
     jQuery.ajaxSetup({async: true});
@@ -74,7 +74,7 @@ function saveData() {
         return "";
     }
     var putRequest = createPUTRequest(connToken,
-            jsonStrObj, empDBName,empRelationName);
+            jsonStrObj, studentDBName,studentRelationName);
 
     jQuery.ajaxSetup({async: false});
     var reJsonObj = executeCommandAtGivenBaseUrl(putRequest,"http://api.login2explore.com:5577", "/api/iml");
@@ -134,7 +134,7 @@ function validateData() {
 function changeData(){
     $("#change").prop("disabled",true);
     jsonChg=validateData(); 
-    var updateRequest=createUPDATERecordRequest(connToken,jsonChg,empDBName,empRelationName,localStorage.getItem("recno"));
+    var updateRequest=createUPDATERecordRequest(connToken,jsonChg,studentDBName,studentRelationName,localStorage.getItem("recno"));
     jQuery.ajaxSetup({async: false});
     var resJsonObj = executeCommandAtGivenBaseUrl(updateRequest,
             "http://api.login2explore.com:5577", "/api/iml");
@@ -143,5 +143,3 @@ function changeData(){
     resetForm();
     $("#studentid").focus();    
 }
-
-
