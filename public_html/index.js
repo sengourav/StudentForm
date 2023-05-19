@@ -12,7 +12,7 @@ var connToken="90933188|-31949319807818497|90951095";
 $("#studentid").focus();
 
 
-function getEmpIdAsJsonObj(){
+function getStudentIdAsJsonObj(){
     var studentid=$('#studentid').val();
     var jsonStr={
         id:studentid
@@ -37,7 +37,7 @@ function fillData(jsonObj){
 }
 
 function getStudent(){
-    var empIdJsonObj = getEmpIdAsJsonObj();
+    var empIdJsonObj = getStudentIdAsJsonObj();
     var getRequest = createGET_BY_KEYRequest(connToken, empDBName, empRelationName, empIdJsonObj);
     jQuery.ajaxSetup({async: false});
     var resJsonObj = executeCommandAtGivenBaseUrl(getRequest, jpdbBaseURL, jpdbIRL);
